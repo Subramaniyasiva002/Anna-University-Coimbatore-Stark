@@ -9,7 +9,7 @@
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/login">Login</router-link></li>
           <li><router-link to="/register">Register</router-link></li>
-          <li><router-link to="/contact">Contact</router-link></li>
+          <li><router-link to="/dashboard">Dashboard</router-link></li>
         </ul>
         <form @submit.prevent="onSubmit" class="form-inline position-relative my-2 my-lg-0">
           <input 

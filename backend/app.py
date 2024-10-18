@@ -31,6 +31,56 @@ CORS(app, supports_credentials=True, resources={
 # Setup MySQL
 mysql = MySQL(app)
 
+
+# Login route
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    data = request.get_json()
+    email = data.get('Email')
+    password = data.get('Password')
+
+    logging.info(f"Attempting login for Email: {email}")
+
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT Email, Password FROM login WHERE Email=%s", (email,))
+    user = cur.fetchone()
+    cur.close()
+
+    if user:
+        logging.info(f"User found: {user[0]}")
+        if user[1] == password:
+            logging.info("Password match successful")
+            session['email'] = user[0]
+            return jsonify(message="Login successful", email=user[0]), 200
+        else:
+            logging.warning("Password mismatch")
+            return jsonify(message="Invalid username or password"), 401
+    else:
+        logging.warning("User not found")
+        return jsonify(message="Invalid username or password"), 401
+
+
+# Register route
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    Email = data.get('Email')
+    Password = data.get('Password')
+
+    cur = mysql.connection.cursor()
+    cur.execute("INSERT INTO login (Email, Password) VALUES (%s, %s)", (Email, Password))
+    mysql.connection.commit()
+    cur.close()
+
+    return jsonify(message="User registered successfully!"), 201
+
+
+# Logout route
+@app.route('/logout', methods=['POST'])
+def logout():
+    session.pop('email', None)  # Ensure key matches the one used in login
+    return jsonify(message="Logged out successfully"), 200
+
 # Initialize SocketIO
 socketio = SocketIO(app, async_mode='eventlet', logger=True,
     engineio_logger=True,cors_allowed_origins="http://localhost:5173")
