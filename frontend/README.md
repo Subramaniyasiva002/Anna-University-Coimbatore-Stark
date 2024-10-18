@@ -1,29 +1,12 @@
-# frontend
+ANNA UNIVERSITY COIMBATORE-STARK
 
-This template should help get you started developing with Vue 3 in Vite.
+TEAM MEMBER DETAILS
 
-## Recommended IDE Setup
+Mythili M           mythilim1194@gmail.com          6369497320
+Sriram S            sriramprince030@gmail.com       6369664665
+Subramaniyasiva S   sssubramaniyasiva@gmail.com     8825470295
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+PROBLEM STATEMENT
+     Real-Time Equity Analysis under the theme of Improving Banking, Integrated apps
+Real-time equity analysis involves continuously monitoring and analyzing stock prices, financial metrics, and other market data to provide insights into the performance of equity investments. In real-time equity analysis, data such as stock prices, trading volumes, earnings reports, and news are streamed live, processed, and visualized for immediate decision-making.
+    Here we have created a Real-Time Equity Analysis Platform in which the user can login and check the equity status by  

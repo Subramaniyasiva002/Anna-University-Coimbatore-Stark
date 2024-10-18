@@ -12,12 +12,8 @@
     "@canvasjs/charts": "^3.10.12",
     "@canvasjs/stockcharts": "^1.10.12",
     "axios": "^1.7.7",
-<<<<<<< HEAD
-    "fullpage.js": "^4.0.30",
-=======
     "chart.js": "^4.4.5",
     "socket.io-client": "^4.8.0",
->>>>>>> cec742d1ab43b192554b6f47d03b90f4debdc8f7
     "vue": "^3.5.12",
     "vue-fullpage.js": "^0.2.20",
     "vue-router": "^4.4.5"
