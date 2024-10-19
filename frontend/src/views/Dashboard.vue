@@ -238,14 +238,134 @@ export default {
 </script>
 
 <style scoped>
+/* General layout */
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px; /* Additional padding for spacing */
+  background-color: #f4f6f8; /* Light background to separate content from the page */
+  border-radius: 10px; /* Rounded container */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
+/* Typography and text alignment */
+h2 {
+  font-size: 2rem;
+  color: #1f2937; /* Darker text color for better contrast */
+  text-align: center; /* Center the main title */
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #374151; /* Darker color for subtitles */
+  text-align: left;
+}
+
+/* Input and button styling */
+input {
+  border: 1px solid #d1d5db; /* Light border */
+  border-radius: 8px;
+  padding: 10px;
+  transition: border-color 0.3s ease;
+  background-color: #ffffff; /* White background for inputs */
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6; /* Focus border color */
+}
+
+button {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2563eb; /* Darker blue on hover */
+}
+
+/* Stock data display */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.grid div {
+  background-color: #ffffff; /* White cards for stock data */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Soft shadow for card depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid div:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+}
+
+.grid .text-sm {
+  color: #6b7280; /* Gray color for small text */
+}
+
+.grid .text-lg {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #111827; /* Darker color for price and values */
+}
+
+/* Chart container */
 .chart-container {
   position: relative;
   height: 400px;
   width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9fafb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Error message */
+.text-red-500 {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Button disabled state */
+button:disabled {
+  background-color: #9ca3af; /* Gray color for disabled buttons */
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+  }
+  .chart-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 column for very small screens */
+  }
+  h2 {
+    font-size: 1.5rem; /* Smaller title for small screens */
+  }
 }
 </style>
