@@ -2,7 +2,9 @@
   <div class="homepage">
     <header class="header">
       <nav class="navbar">
-        <a class="brand-logo" style="font-weight: bold;"><span class="fa fa-gg"></span>STARK</a>
+        <a class="brand-logo" style="font-weight: bold;">
+          <span class="fa fa-gg"></span> STARK
+        </a>
         <ul class="nav-links">
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/login">Login</router-link></li>
@@ -25,8 +27,24 @@
     <div class="login-container">
       <h2>Login</h2>
       <form @submit.prevent="loginUser" class="login-form">
-        <input type="text" v-model="Email" placeholder="Email" required class="input-field" />
-        <input type="password" v-model="Password" placeholder="Password" required class="input-field" />
+        <label for="email">Email</label>
+        <input 
+          type="text" 
+          v-model="Email" 
+          placeholder="Email" 
+          required 
+          class="input-field" 
+          id="email"
+        />
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          v-model="Password" 
+          placeholder="Password" 
+          required 
+          class="input-field" 
+          id="password"
+        />
         <button type="submit" class="login-button">Login</button>
       </form>
       <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
@@ -72,22 +90,6 @@ export default {
 </script>
 
 <style scoped>
-.login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;  /* Center vertically */
-  align-items: center;      /* Center horizontally */
-  height: 100vh;           /* Full viewport height */
-  width: 100vw;            /* Full viewport width */
-  padding: 20px;
-  background-color: #f9f9f9;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .homepage {
   font-family: sans-serif;
   color: #333;
@@ -96,6 +98,30 @@ h2 {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+}
+
+/* Background image */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;
+  color:black;      
+  height: 100vh;           
+  width: 100vw;            
+  padding: 20px;
+  background: url('@/assets/login.webp') no-repeat center center; 
+  background-size: cover;  /* Ensure the image covers the entire area */
+  backdrop-filter: blur(7px);
+
+   /* Optional: Adds a blur effect behind the login form */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color:white;
+  font-weight:bold;
 }
 
 /* Header styles */
@@ -108,7 +134,7 @@ h2 {
 
 .navbar {
   display: flex;
-  justify-content: space-between; /* Space between brand logo and links */
+  justify-content: space-between; 
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -145,11 +171,11 @@ h2 {
 
 .login-form {
   width: 100%;
-  max-width: 400px; /* Set maximum width for the form */
+  max-width: 400px; 
   display: flex;
   flex-direction: column;
   padding: 20px;
-  justify-content: center; /* Center content inside the form */
+  justify-content: center; 
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -183,6 +209,31 @@ h2 {
 }
 
 .sign-up-prompt {
-  margin-top: 20px; /* Add some space above the sign-up prompt */
+  margin-top: 20px; 
+  font-weight: bold;
+  color:white;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+  .login-form {
+    width: 90%; /* Adjust form width for small screens */
+  }
+
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically on small screens */
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    margin-top: 10px; /* Add space between brand and links */
+  }
+
+  .nav-links li {
+    margin: 5px 0; /* Space between links */
+  }
+
+
 }
 </style>

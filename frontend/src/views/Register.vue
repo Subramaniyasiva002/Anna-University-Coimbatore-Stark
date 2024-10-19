@@ -1,9 +1,10 @@
 <template>
-
- <div class="homepage">
+  <div class="homepage">
     <header class="header">
       <nav class="navbar">
-        <a class="brand-logo" style="font-weight: bold;"><span class="fa fa-gg"></span>STARK</a>
+        <a class="brand-logo" style="font-weight: bold;">
+          <span class="fa fa-gg"></span>STARK
+        </a>
         <ul class="nav-links">
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/login">Login</router-link></li>
@@ -22,18 +23,19 @@
         </form>
       </nav>
     </header>
+
+    <div class="register-container">
+      <h2>Create Account</h2>
+      <form @submit.prevent="registerUser" class="register-form">
+        <input type="email" v-model="Email" placeholder="Email" required class="input-field" />
+        <input type="password" v-model="Password" placeholder="Password" required class="input-field" />
+        <button type="submit" class="register-button">Register</button>
+      </form>
+      <p v-if="successMessage" class="success-message">{{ successMessage }}</p>
+      <p class="login-prompt">
+        Already have an account? <router-link to="/login">Login here</router-link>
+      </p>
     </div>
-  <div class="register-container">
-    <h2>Create Account</h2>
-    <form @submit.prevent="registerUser" class="register-form">
-      <input type="email" v-model="Email" placeholder="Email" required class="input-field" />
-      <input type="password" v-model="Password" placeholder="Password" required class="input-field" />
-      <button type="submit" class="register-button">Register</button>
-    </form>
-    <p v-if="successMessage" class="success-message">{{ successMessage }}</p>
-    <p class="login-prompt">
-      Already have an account? <router-link to="/login">Login here</router-link>
-    </p>
   </div>
 </template>
 
@@ -74,12 +76,15 @@ export default {
   height: 100vh;  /* Full viewport height */
   width: 100vw;   /* Full viewport width */
   padding: 20px;
-  background-color: #f9f9f9;
+  background: url('@/assets/login.webp') no-repeat center center; 
+  background-size: cover;  /* Ensure the image covers the entire area */
+  backdrop-filter: blur(7px); /* Adds a blur effect behind the register form */
 }
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
+  color:white;
 }
 
 /* Header styles */
@@ -168,5 +173,28 @@ h2 {
 .login-prompt {
   margin-top: 20px; /* Add some space above the login prompt */
   text-align: center;
+  color:white;
+  font-weight:bold;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+  .register-form {
+    width: 90%; /* Adjust form width for small screens */
+  }
+
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically on small screens */
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    margin-top: 10px; /* Add space between brand and links */
+  }
+
+  .nav-links li {
+    margin: 5px 0; /* Space between links */
+  }
 }
 </style>

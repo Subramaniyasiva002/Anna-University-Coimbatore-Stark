@@ -26,7 +26,9 @@
 
   <main class="main-content">
     <p class="headline">Get Insights, Track Trends, and Stay Ahead of the Market</p>
+    <p class="know">Knowledge is the new currency, so invest wisely...</p>
     <router-link to="/login" class="try-now-button">Try Now</router-link>
+   
   </main>
 
 
@@ -144,10 +146,13 @@ export default {
 
 /* Headline styles */
 .headline {
-  font-size: 2em;
-  color: #fff;
+  font-size: 0.5em;
+  color: #210715;
   text-align: center;
   margin-bottom: 20px; /* Space below the headline */
+}
+.know{
+  font-weight:bold;
 }
 
 /* Try Now button styles */
