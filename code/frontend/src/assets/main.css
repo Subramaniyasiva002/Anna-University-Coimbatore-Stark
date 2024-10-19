@@ -1,0 +1,18 @@
+@import './base.css';
+
+
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(71, 31%, 21%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+
+}
